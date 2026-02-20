@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite de Formatura | Rafael Gonzaga</title>
+    <link href="https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+
+    <style>
+       body {
+            font-family: 'Inter', sans-serif;
+            background-color: #111827;
+            /* Lembre-se de colocar a URL da sua imagem de fundo aqui */
+            background-image: url("https://lh3.googleusercontent.com/pw/AP1GczNQMQtlk4F88KBC76cBt6eqkRAJg3ngZcsfS__ZPpeC6GUp6jViHtA-yRJj1zWCUqn3nwVc99epwhCRDZhMwCexk_znPXHakWN-8jamjHriNG3KYKsiTKS1bDn2Iz7IKGXz0mW40HK6YNnQfoe7mO2raQ=w399-h599-s-no-gm?authuser=0");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed;
+            overflow-x: hidden;
+            overflow-y: hidden; /* Impede rolagem enquanto a splash screen está ativa */
+        }
+
+        h1,
+        h2,
+        h3,
+        .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+            letter-spacing: 0.05em;
+        }
+
+        /* Animações de entrada */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos da tela de Intimação */
+        #splash-screen {
+            transition: opacity 0.8s ease-in-out, visibility 0.8s;
+        }
+
+        #main-content {
+            display: none;
+        }
+
+        /* Estilo do Modal */
+        .modal {
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        /* Estilo do Carrossel */
+        .carousel-track {
+            transition: transform 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+        }
+    </style>
+</head>
+
+<body class="bg-black text-gray-200 antialiased">
+
+    <div id="splash-screen" class="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4">
+        <div class="text-center text-white max-w-lg mx-auto p-4"> <svg class="w-20 h-20 mx-auto mb-6 text-red-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+            </svg>
+            <h2 class="text-3xl md:text-5xl font-serif text-red-300">Intimação Solene</h2>
+            <p class="mt-6 text-base md:text-lg text-gray-300 leading-relaxed">
+                Você está sendo formalmente intimado(a) a comparecer ao julgamento mais aguardado do ano: a minha festa de formatura.
+                Sua presença será registrada nos autos como testemunho de honra dessa conquista.
+            </p>
+            <button id="view-invitation-btn" class="mt-10 bg-red-700 text-white font-bold py-3 px-6 md:py-3 md:px-8 rounded-lg text-base md:text-lg hover:bg-red-600 transition-all duration-300 shadow-lg hover:shadow-red-500/30 transform hover:scale-105">
+                Visualizar Intimação
+            </button>
+        </div>
+    </div>
+
+
+    <div id="main-content">
+        <div class="container mx-auto p-4 md:p-8 max-w-3xl">
+
+            <header class="relative text-center pt-12 pb-2 md:pb-2 px-6 fade-in-up flex flex-col items-center justify-center min-h-[65vh] md:min-h-[70vh] bg-gradient-to-b from-black/90 via-black/40 to-transparent">
+
+                <div class="mb-10 md:mb-14">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMtIIwwSZo_cyWPCIqnqwRoU0dm8_qAZiGldx4Enu3OYWHb8UWN7Z8D2FzQlDx0WFjtTUxJ5oXfJog7AF9GqhLzV1jPIAWhvzzk869O0zf6SHqBudGssvIuvkDq-D-RkzX9P637YdFlvd1weEpLW0fOdg=w636-h636-s-no?authuser=0" alt="Deusa da Justiça" class="w-40 h-40 md:w-64 md:h-64 mx-auto rounded-full shadow-[0_0_30px_rgba(202,138,4,0.3)] object-cover border-2 border-yellow-600/30">
+                </div>
+
+                <p class="font-['Playfair_Display'] font-serif text-yellow-500/90 text-sm tracking-[0.5em] mb-6 uppercase">
+                    •Convite de Formatura•
+                </p>
+
+                <h1 class="text-4xl md:text-7xl font-serif font-bold text-white tracking-widest uppercase 
+    drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] px-4">
+                    Rafael da Costa Gonzaga
+                </h1>
+
+                <div class="w-48 h-[1px] bg-gradient-to-r from-transparent via-yellow-600 to-transparent my-10 opacity-70"></div>
+
+                <p class="max-w-3xl mx-auto text-gray-200 text-lg md:text-2xl font-light leading-relaxed tracking-wide italic 
+    drop-shadow-lg px-4">
+                    "Depois de anos de dedicação, provas e noites em claro, chegou a hora de vestir a beca e celebrar a conquista.
+                    É com imensa alegria que convido você para viver comigo esse momento tão esperado e especial."
+                </p>
+            </header>
+            <section id="countdown" class="text-center mt-12 md:mt-16 py-12 fade-in-up">
+            </section>
+
+            <!-- Ajuste na tag MAIN para remover margens excessivas embaixo -->
+<main class="bg-black/30 backdrop-blur-sm p-6 md:p-8 mt-6 md:mt-8 mb-0 rounded-t-lg shadow-2xl border border-red-900/50 fade-in-up" style="transition-delay: 400ms;">
+    <!-- O conteúdo injetado via JS entra aqui -->
+</main>
+
+<!-- Ajuste na SECTION para subir e encostar na main -->
+<section class="mt-8 text-center pb-12 pt-8 bg-black/30 backdrop-blur-sm rounded-b-lg border-x border-b border-red-900/50 fade-in-up">
+    <h3 class="text-2xl md:text-3xl font-bold text-white mb-4 font-serif">Confirmação de Presença</h3>
+    <p class="text-gray-300 mb-4 max-w-md mx-auto text-sm md:text-base px-4">
+        Sua presença tornará este dia ainda mais especial. Por favor, <span class="underline decoration-red-400 text-white font-medium">confirme até 10/03/2026.</span>
+    </p> 
+    <div class="space-y-4">
+  <p class="text-red-600 text-sm md:text-lg font-bold italic font-light">
+    E lembre-se: Convidado não convida!
+  </p>
+
+  <button id="rsvpButton"
+    class="bg-red-700 text-white font-bold py-3 px-8 md:py-4 md:px-10 rounded-lg text-base md:text-lg hover:bg-red-600 transition-all duration-300 shadow-lg hover:shadow-red-500/30 transform hover:scale-105">
+    Confirmar Presença
+  </button>
+</div>
+    <p id="rsvpMessage" class="mt-6 text-green-400 text-sm md:text-lg" style="display: none;">
+    Obrigado! Sua presença foi confirmada. Nos vemos na festa!
+    </p>
+    
+
+</section>
+
+            <section class="mt-12 py-4 fade-in-up" style="transition-delay: 800ms;">
+                <h3 class="text-2xl md:text-3xl font-bold text-white text-center mb-4">Momentos da Jornada</h3>
+                <div id="photo-carousel" class="relative max-w-[350px] md:max-w-[400px] mx-auto overflow-hidden rounded-lg shadow-2xl border border-red-900/50">
+                    <div class="carousel-track flex transition-transform duration-700 ease-in-out">
+                    </div>
+                    <button id="prevBtn" class="absolute top-1/2 left-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors z-10">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                    <button id="nextBtn" class="absolute top-1/2 right-2 -translate-y-1/2 bg-black/50 text-white p-2 rounded-full hover:bg-black/80 transition-colors z-10">
+                        <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </button>
+                    <div id="carousel-dots" class="absolute bottom-4 left-1/2 -translate-x-1/2 flex space-x-2 z-10">
+                    </div>
+                </div>
+            </section>
+
+            <footer class="text-center py-4 fade-in-up font-playfair italic">
+                <p class="text-gray-100 text-sm md:text-base font-semibold">
+                    Uma celebração para guardar na memória.
+                </p>
+            </footer>
+
+        </div>
+    </div>
+
+    <div id="rsvpModal" class="modal fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 invisible opacity-0 z-20">
+    </div>
+
+    <script>
+
+        function abrirMapa() {
+  window.open(
+    "https://maps.app.goo.gl/iSynFSbqixBHuJdN8",
+    "_blank"
+  );
+}
+
+        function copyPix() {
+    const pixText = document.getElementById("pixCode").innerText.replace(/\D/g, '');
+
+    navigator.clipboard.writeText(pixText)
+        .then(() => {
+    const tooltip = document.getElementById('copyTooltip');
+    tooltip.textContent = "Copiado com sucesso!";
+    tooltip.classList.remove('opacity-0');
+
+    setTimeout(() => {
+        tooltip.classList.add('opacity-0');
+        tooltip.textContent = "Copiado!";
+    }, 2000);
+})
+        .catch(() => {
+            alert("Não foi possível copiar automaticamente.");
+        });
+}
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // Injeção de HTML para evitar repetição e facilitar a leitura
+            document.getElementById('countdown').innerHTML = `<h2 class="text-2xl md:text-4xl font-bold text-white mb-8">A Celebração se Aproxima</h2><div class="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-md mx-auto text-white"><div class="bg-black/30 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-red-900/50"><div id="days" class="text-3xl md:text-4xl font-bold">00</div><div class="text-xs md:text-sm text-red-300 uppercase">Dias</div></div><div class="bg-black/30 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-red-900/50"><div id="hours" class="text-3xl md:text-4xl font-bold">00</div><div class="text-xs md:text-sm text-red-300 uppercase">Horas</div></div><div class="bg-black/30 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-red-900/50"><div id="minutes" class="text-3xl md:text-4xl font-bold">00</div><div class="text-xs md:text-sm text-red-300 uppercase">Minutos</div></div><div class="bg-black/30 backdrop-blur-sm p-3 md:p-4 rounded-lg border border-red-900/50"><div id="seconds" class="text-3xl md:text-4xl font-bold">00</div><div class="text-xs md:text-sm text-red-300 uppercase">Segundos</div></div></div>`;
+           document.querySelector('main').innerHTML = `
+    <!-- Título em Vermelho Vinho para contrastar com o fundo claro -->
+    <h3 class="text-3xl md:text-4xl font-bold text-center text-red-800 mb-10 font-serif tracking-[0.2em] uppercase drop-shadow-sm">
+        Detalhes do Evento
+    </h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-black">
+        
+        <!-- DATA E HORÁRIO - Bordas Pretas/Vinho e texto escuro para leitura -->
+        <div class="flex items-start p-5 bg-white/40 backdrop-blur-md rounded-xl border border-red-900/30 hover:bg-white/60 transition-all duration-500 group shadow-sm">
+            <div class="p-3 rounded-lg bg-red-800 text-white mr-4 group-hover:scale-110 transition-transform shadow-md">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+            </div>
+            <div>
+                <p class="text-xs uppercase tracking-widest text-red-900 font-bold mb-1">Data e Horário</p>
+                <p class="text-base md:text-lg font-bold text-black">Sábado, 21 de Março de 2026</p>
+                <p class="text-sm text-gray-700 font-medium">Recepção a partir das 21:00</p>
+            </div>
+        </div>
+
+        <!-- TRAJE -->
+        <div class="flex items-start p-5 bg-white/40 backdrop-blur-md rounded-xl border border-red-900/30 hover:bg-white/60 transition-all duration-500 group shadow-sm">
+            <div class="p-3 rounded-lg bg-red-800 text-white mr-4 group-hover:scale-110 transition-transform shadow-md">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.38 3.46L16 2a4 4 0 01-8 0L3.62 3.46a2 2 0 00-1.34 1.9l-.58 6.91a2 2 0 00.71 1.5l2.11 1.65a.8.8 0 01.29.62V21a2 2 0 002 2h6a2 2 0 002-2v-4.91a.8.8 0 01.29-.62l2.11-1.65a2 2 0 00.71-1.5l-.58-6.91a2 2 0 00-1.34-1.9z" />
+                </svg>
+            </div>
+            <div>
+                <p class="text-xs uppercase tracking-widest text-red-900 font-bold mb-1">Sugestão de Roupa</p>
+                <p class="text-base md:text-lg font-bold text-black">Esporte Fino ou Casual Elegante</p>
+                <p class="text-xs text-gray-800 mt-2 italic font-semibold">
+                    <span class="bg-red-100 text-red-700 px-1">⚠️ Deve-se evitar roupas nas cores vermelho e azul.</span>
+                </p>
+            </div>
+        </div>
+
+        <!-- LOCAL -->
+        <div class="md:col-span-2 flex flex-col items-center p-8 bg-white/30 backdrop-blur-md rounded-xl border border-red-900/20 text-center group transition-all shadow-sm">
+            <div class="p-4 rounded-full bg-red-800 text-white mb-4 shadow-lg group-hover:bg-red-700 transition-colors">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+            </div>
+            <p class="text-xs uppercase tracking-[0.3em] text-red-900 font-bold mb-2">Local do Evento</p>
+            <p class="text-2xl md:text-3xl font-serif text-black font-bold mb-1">Espaço Rainha Eventos</p>
+            <p class="text-gray-800 text-sm md:text-base mb-6 font-medium italic">Av. Paraguassu, 373 - Rainha do Mar, Xangri-lá - RS</p>
+            
+            <a href="#"
+   onclick="abrirMapa(); return false;"
+   class="inline-flex items-center px-8 py-3 bg-red-800 hover:bg-black text-white text-sm font-bold rounded-full transition-all duration-300 transform hover:-translate-y-1 shadow-lg">
+   ABRIR NO GOOGLE MAPS
+</a>
+        </div>
+
+        <!-- PRESENTE / PIX -->
+        <div class="md:col-span-2 flex flex-col items-center p-8 bg-white/20 rounded-xl border border-black/10 text-center shadow-inner">
+            <!-- ÍCONE ALTERADO PARA VERMELHO AQUI -->
+            <div class="p-4 rounded-full bg-red-800 text-white mb-4 shadow-md">
+                <svg class="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12v10H4V12M2 8h20v4H2V8zm10 0V2m-3 2a3 3 0 106 0 3 3 0 10-6 0z" />
+                </svg>
+            </div>
+            <p class="text-xs uppercase tracking-[0.3em] text-red-900 font-bold mb-2">Sugestão de Presente</p>
+            <p class="text-base md:text-lg text-black font-medium mb-2">Para aqueles que desejarem presentear, qualquer gesto será recebido com muito carinho, mas caso prefira, e prezando pela praticidade, disponibilizo a opção de PIX:</p>
+            <p class="text-sm text-gray-100 mb-6 font-light italic font-medium">Chave PIX (Celular):</p>
+            
+            <button onclick="copyPix()" class="group relative flex items-center px-6 py-4 bg-white rounded-xl border-2 border-dashed border-red-800 hover:border-black transition-all cursor-pointer shadow-md">
+                <span id="pixCode" class="text-red-900 font-mono text-lg md:text-xl mr-4 tracking-wider font-bold">51 99565-4562</span>
+                <div class="bg-red-800 p-2 rounded-lg text-white group-hover:bg-black transition-all">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 002 2h2a2 2 0 002-2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+                    </svg>
+                </div>
+                <span id="copyTooltip" class="absolute -top-10 left-1/2 -translate-x-1/2 bg-black text-white text-xs py-1 px-3 rounded opacity-0 transition-opacity font-bold">Copiado!</span>
+            </button>
+        </div>
+    </div>
+`;
+    
+document.getElementById('rsvpModal').innerHTML = `<div class="bg-gray-900 border border-red-900/50 p-6 md:p-8 rounded-lg shadow-2xl w-full max-w-lg transform transition-all scale-95"><div class="flex justify-between items-center mb-6"><h3 class="text-xl md:text-2xl font-bold text-white">Confirmação de Presença</h3><button id="closeModalButton" class="text-gray-400 hover:text-white text-3xl">&times;</button></div><form id="rsvpForm"><div class="mb-4"><label for="name" class="block text-sm font-medium text-gray-300 mb-2">Seu Nome Completo</label><input type="text" id="name" name="name" required class="w-full bg-gray-800 border border-gray-700 text-white rounded-md p-2 focus:ring-red-500 focus:border-red-500"></div><div class="mb-4"><label for="partner" class="block text-sm font-medium text-gray-300 mb-2">Nome do(a) Acompanhante (opcional)</label><input type="text" id="partner" name="partner" class="w-full bg-gray-800 border border-gray-700 text-white rounded-md p-2 focus:ring-red-500 focus:border-red-500"></div><div class="mb-6"><label for="children" class="block text-sm font-medium text-gray-300 mb-2">Nomes dos Filhos (se aplicável)</label><textarea id="children" name="children" rows="3" placeholder="Ex: João (10 anos), Maria (7 anos)" class="w-full bg-gray-800 border border-gray-700 text-white rounded-md p-2 focus:ring-red-500 focus:border-red-500"></textarea></div><button type="submit" class="w-full bg-red-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-red-600 transition-colors text-base">Enviar Confirmação</button></form></div>`;
+
+
+            // Lógica da tela de Intimação
+            const splashScreen = document.getElementById('splash-screen');
+            const mainContent = document.getElementById('main-content');
+            const viewInvitationBtn = document.getElementById('view-invitation-btn');
+
+            viewInvitationBtn.addEventListener('click', () => {
+                splashScreen.style.opacity = '0';
+                splashScreen.style.visibility = 'hidden';
+                document.body.style.overflowY = 'auto'; // Libera o scroll vertical
+                document.body.style.overflowX = 'hidden'; // Garante que não haja rolagem horizontal
+
+                mainContent.style.display = 'block';
+                // Trigger animations
+                setTimeout(() => {
+                    document.querySelectorAll('.fade-in-up').forEach(el => {
+                        el.classList.add('visible');
+                    });
+                }, 100);
+            });
+
+            // Contagem Regressiva - DATA ATUALIZADA
+            const countdownDate = new Date("2026-03-21T20:00:00-03:00").getTime();
+            const countdownInterval = setInterval(() => {
+                const now = new Date().getTime();
+                const distance = countdownDate - now;
+                if (distance < 0) {
+                    clearInterval(countdownInterval);
+                    document.getElementById("countdown").innerHTML = "<h2 class='text-xl md:text-3xl font-bold text-red-300'>A festa já começou!</h2>"; // Ajuste para mobile
+                    return;
+                }
+                document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24)).toString().padStart(2, '0');
+                document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0');
+                document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0');
+                document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000).toString().padStart(2, '0');
+            }, 1000);
+
+            // Lógica do Modal
+const rsvpButton = document.getElementById("rsvpButton");
+const rsvpMessage = document.getElementById("rsvpMessage");
+const rsvpMessageConvidado = document.getElementById("rsvpMessageConvidado");
+const rsvpModal = document.getElementById("rsvpModal");
+const modalContentDiv = rsvpModal.querySelector('div');
+const closeModalButton = document.getElementById("closeModalButton");
+const rsvpForm = document.getElementById("rsvpForm");
+
+const openModal = () => {
+    rsvpModal.classList.remove('invisible', 'opacity-0');
+    modalContentDiv.classList.remove('scale-95');
+    document.body.style.overflowY = 'hidden'; 
+};
+
+const closeModal = () => {
+    modalContentDiv.classList.add('scale-95');
+    rsvpModal.classList.add('opacity-0');
+    setTimeout(() => rsvpModal.classList.add('invisible'), 300);
+    document.body.style.overflowY = 'auto'; 
+};
+
+rsvpButton.addEventListener("click", openModal);
+closeModalButton.addEventListener("click", closeModal);
+rsvpModal.addEventListener('click', (e) => {
+    if (e.target === rsvpModal) closeModal();
+});
+
+// URL do Google Apps Script (substitua pela sua URL após implantar)
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbycGqJNdIx77YSYIARwMBUQc5Kf30YFgUFJcuOYPg-KmmhQRkFyYXJkEWmxa8DRVlme/exec"; 
+
+// Lógica de Envio Única e Consolidada
+rsvpForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    
+    // Estágio de Carregamento no Botão do Modal
+    const submitBtn = rsvpForm.querySelector('button[type="submit"]');
+    const originalBtnText = submitBtn.innerText;
+    submitBtn.innerText = "Enviando...";
+    submitBtn.disabled = true;
+
+    // Coleta dos dados do formulário
+    const formData = {
+        name: document.getElementById("name").value,
+        partner: document.getElementById("partner").value,
+        children: document.getElementById("children").value
+    };
+
+    // Envio para o Google Sheets via Fetch API
+    fetch(SCRIPT_URL, {
+        method: 'POST',
+        mode: 'no-cors', 
+        cache: 'no-cache',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(() => {
+        // Sucesso no envio
+        closeModal();
+        
+        // Atualiza o botão principal do convite (o que abriu o modal)
+        rsvpButton.innerText = "Presença Confirmada!";
+        rsvpButton.disabled = true;
+        rsvpButton.classList.add("bg-green-600");
+        rsvpButton.classList.remove("bg-red-700", "hover:bg-red-600");
+        
+        // Mostra a mensagem de agradecimento na tela principal
+        rsvpMessage.style.display = "block";
+        rsvpMessageConvidado.style.display = "block";
+        
+        // Limpa o formulário
+        rsvpForm.reset();
+    })
+    .catch(error => {
+        console.error('Erro ao enviar:', error);
+        submitBtn.innerText = "Erro ao enviar. Tente novamente.";
+        submitBtn.disabled = false;
+        setTimeout(() => { submitBtn.innerText = originalBtnText; }, 3000);
+    });
+});
+
+// Lógica do Carrossel de Fotos - COM AUTOPLAY
+            const photos = [{
+                    src: 'https://lh3.googleusercontent.com/pw/AP1GczNo09thhz8Gjr2ihXDNEQi9A--CHBIkn_sxITDenLKX0UjWFFREbKSxL49yZvoMF40pyDIEl8iULYP1OwSWcyCi59rB2XV76WamAXfum9XBUA_iBhSrSoo6wfz1yvEMufZotj9fhDe2VQTb28wzcmJIbA=w399-h599-s-no-gm?authuser=0',
+                    alt: 'Foto do Rafael no apitaço'
+                },
+                {
+                    src: 'https://lh3.googleusercontent.com/pw/AP1GczPTJslw5VLCxn3e1RTyBGji_4YipILP4fwlcy4zKtT8AX-pA9hh5vhcI6adx1No7aS2jYDJZeaADgedgDJPiaxr4XH7LcHFmJbQ62Mf913W3InO6iKEeYWr8CFh20AzY-1e30SF4rBzfRtp8LCxvMDuxA=w400-h599-s-no-gm?authuser=0',
+                    alt: 'Rafael de toga, olhando para cima'
+                },
+                {
+                    src: 'https://lh3.googleusercontent.com/pw/AP1GczM_OmJ8h6_w9fVu592aa0IodQfWBZIT3XU5RBz74D104edPPrCMVdZh-0zMRD8BpqiSp4gwPKGGyB_YjbOM6AxLXFY77JltJKPD30-lJcCWss-QpfyfpFNZ8X1lZAvaSGXA5BBDy5MYFFOoa8ybz8pxTg=w399-h599-s-no-gm?authuser=0',
+                    alt: 'Rafael de terno'
+                },
+                {
+                    src: 'https://lh3.googleusercontent.com/pw/AP1GczOvRCZ1V7Zbikl6kvdUjuBDgxUNvFMK0YWt1JGksqeleWQb7jX5rLnZPUPOH-OyJhoYxePb37Un9SwC7h-uTMM8yuHn7omHzWQOsvbupOfzL0zbDZpjiKTTOJZOEhDDpHSIREtHfd_9-IQ57l3jWx8M6g=w399-h599-s-no-gm?authuser=0',
+                    alt: 'Rafael jogando o capelo para cima'
+                }
+            ];
+            const track = document.querySelector('.carousel-track');
+            const dotsContainer = document.getElementById('carousel-dots');
+
+            photos.forEach((photo, index) => {
+    const slide = document.createElement('div');
+    
+    // 1. Mudamos de 'min-w-full' para 'w-full flex-none' para garantir que não vai esticar
+    slide.className = 'w-full flex-none'; 
+
+    // 2. Usamos 'relative' no contêiner e 'absolute inset-0' na imagem
+    slide.innerHTML = `
+        <div class="relative w-full aspect-[2/3] bg-black overflow-hidden">
+            <img 
+                src="${photo.src}" 
+                alt="${photo.alt}" 
+                class="absolute inset-0 w-full h-full object-cover"
+            >
+        </div>
+    `;
+    track.appendChild(slide);
+
+    const dot = document.createElement('button');
+    dot.className = 'w-2 h-2 md:w-3 md:h-3 rounded-full bg-white/40 transition-colors hover:bg-white/60';
+    dotsContainer.appendChild(dot);
+    
+    dot.addEventListener('click', () => {
+        goToSlide(index);
+        resetAutoPlay();
+    });
+});
+            let currentIndex = 0;
+            let autoPlayInterval;
+            const slides = document.querySelectorAll('.carousel-track > div');
+            const dots = dotsContainer.querySelectorAll('button');
+
+            const goToSlide = (index) => {
+                if (index < 0) index = slides.length - 1;
+                if (index >= slides.length) index = 0;
+                track.style.transform = `translateX(-${index * 100}%)`;
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('bg-white', i === index);
+                    dot.classList.toggle('bg-white/40', i !== index);
+                });
+                currentIndex = index;
+            };
+
+            const startAutoPlay = () => {
+                autoPlayInterval = setInterval(() => goToSlide(currentIndex + 1), 4000);
+            };
+
+            const resetAutoPlay = () => {
+                clearInterval(autoPlayInterval);
+                startAutoPlay();
+            };
+
+            document.getElementById('prevBtn').addEventListener('click', () => {
+                goToSlide(currentIndex - 1);
+                resetAutoPlay();
+            });
+            document.getElementById('nextBtn').addEventListener('click', () => {
+                goToSlide(currentIndex + 1);
+                resetAutoPlay();
+            });
+
+            goToSlide(0);
+            startAutoPlay();
+        });
+    </script>
+</body>
+
+</html>
